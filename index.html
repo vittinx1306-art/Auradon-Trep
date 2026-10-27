@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Auradon Noir</title>
+<link rel="stylesheet" href="styles.css?v=3">
+</head>
+<body>
+<section id="authView" hidden>
+  <div class="auth">
+    <h1 class="brand">Auradon Noir</h1>
+    <p class="muted">Encontros entre personagens adultos do RPG.</p>
+    <div class="tabs"><button type="button" data-mode="login" class="on">Entrar</button><button type="button" data-mode="signup">Criar conta</button></div>
+    <form id="authForm">
+      <label>E-mail<input id="email" type="email" autocomplete="email" required></label>
+      <label>Senha<input id="password" type="password" minlength="6" autocomplete="current-password" required></label>
+      <label class="check" id="adultRow" hidden><input id="adult" type="checkbox"> Declaro ter 18 anos ou mais e que só usarei personagens adultos.</label>
+      <button class="primary" id="authSubmit">Entrar</button>
+      <button type="button" class="link" id="forgot">Esqueci minha senha</button>
+    </form>
+    <p class="muted small"><a href="terms.html">Termos de uso</a> · <a href="privacy.html">Privacidade</a></p>
+  </div>
+</section>
+
+<section id="appView" hidden>
+  <header><span class="brand">Auradon Noir</span><span class="chip" id="activeChip"></span></header>
+  <main id="screen"></main>
+  <nav>
+    <button data-screen="discover" class="on">Descobrir</button>
+    <button data-screen="matches">Matches</button>
+    <button data-screen="chars">Personagens</button>
+    <button data-screen="settings">Config.</button>
+  </nav>
+</section>
+
+<dialog id="charDialog">
+  <form id="charForm">
+    <h2 id="charTitle">Novo personagem</h2>
+    <label>Nome*<input name="name" maxlength="40" required></label>
+    <label>Foto principal (JPG, PNG ou WebP, até 10 MB)<input id="photoInput" type="file" accept="image/jpeg,image/png,image/webp"></label>
+    <img id="photoPrev" class="prev" alt="Prévia da foto" hidden>
+    <div class="row">
+      <label>Idade*<input name="age" type="number" min="18" max="99" required></label>
+      <label>Pronomes<input name="pronouns" maxlength="30" placeholder="ela/dela"></label>
+    </div>
+    <label>Reino ou origem<input name="origin" maxlength="60"></label>
+    <label>Ocupação ou curso<input name="occupation" maxlength="60"></label>
+    <label>Biografia<textarea name="bio" maxlength="500" rows="4"></textarea></label>
+    <label>Interesses (separe por vírgula)<input name="interests" maxlength="120"></label>
+    <label>O que procura
+      <select name="seeking"><option value="romance">Romance</option><option value="amizade">Amizade</option><option value="encontros">Encontros</option><option value="rp-livre">RP livre</option></select>
+    </label>
+    <div class="row">
+      <label>Descobrir de (idade)<input name="prefMin" type="number" min="18" max="99" value="18" required></label>
+      <label>até<input name="prefMax" type="number" min="18" max="99" value="99" required></label>
+    </div>
+    <div class="row"><button type="button" id="charCancel">Cancelar</button><button class="primary" id="charSave">Salvar</button></div>
+  </form>
+</dialog>
+<dialog id="infoDialog"><div id="infoBody"></div></dialog>
+<div id="toast" role="status"></div>
+<script type="module" src="app.js?v=3"></script>
+</body>
+</html>
