@@ -1,10 +1,8 @@
-// Cole aqui a config do seu app Web (Firebase > Configurações do projeto > Seus apps).
-// Esses valores não são segredos: a segurança vem do firestore.rules.
 export const firebaseConfig = {
-  apiKey: "COLE_SUA_API_KEY",
-  authDomain: "SEU_PROJETO.firebaseapp.com",
-  projectId: "SEU_PROJETO",
-  appId: "COLE_SEU_APP_ID"
+  apiKey: "AIzaSyBBSs83-wpgjXUfRxg5J2X23LsHdOZmjQc",
+  authDomain: "tinder-b35a9.firebaseapp.com",
+  projectId: "tinder-b35a9",
+  appId: "1:1094786421227:web:d22609741e8050b36289ae"
 };
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
