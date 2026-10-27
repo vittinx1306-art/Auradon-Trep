@@ -31,7 +31,7 @@ async function loadMore(me, tries = 0) {
 async function prepare(me) {
   queue = []; seen = new Set([me.id]); done = false; wrapped = false; startKey = Math.random(); after = startKey; ready = false;
   try {
-    for (const col of ["swipes", "blocks"]) (await getDocs(query(collection(db, col), where("from", "==", me.id), limit(1000)))).forEach((d) => seen.add(d.data().to));
+        for (const col of ["swipes", "blocks"]) (await getDocs(query(collection(db, col), where("fromUid", "==", me.ownerUid), where("from", "==", me.id), limit(1000)))).forEach((d) => seen.add(d.data().to));
     await loadMore(me);
   } catch (e) { toast(friendlyError(e)); }
   ready = true; cb();
